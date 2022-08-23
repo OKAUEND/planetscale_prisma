@@ -19,3 +19,9 @@ model Star {
   name            String    @db.VarChar(255)
   constellation   String    @db.VarChar(255)
 }
+
+model Planet {
+  id              Int       @default(autoincrement()) @id
+  name            String    @db.VarChar(255)
+  order           
+}
