@@ -6,11 +6,12 @@ type Request = {
   method: string;
 };
 
-export const assetHandler = async (request: Request, response) => {
+const assetHandler = async (request: Request) => {
   const { method } = request;
 
-  switch (method) {
-    case "GET":
-      const response = await prisma.star.findMany();
-  }
+  return await prisma.star.findMany();
+};
+
+export const PlanetScale = async () => {
+  assetHandler({ method: "GET" }).then(async () => {});
 };
