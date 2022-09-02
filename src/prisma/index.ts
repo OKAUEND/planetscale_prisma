@@ -13,5 +13,7 @@ const assetHandler = async (request: Request) => {
 };
 
 export const PlanetScale = async () => {
-  assetHandler({ method: "GET" }).then(async () => {});
+  const response = await assetHandler({ method: "GET" });
+  await prisma.$disconnect;
+  return response;
 };
