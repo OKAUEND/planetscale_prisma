@@ -13,7 +13,12 @@ const assetHandler = async (request: Request) => {
 };
 
 export const PlanetScale = async () => {
-  const response = await assetHandler({ method: "GET" });
-  await prisma.$disconnect;
-  return response;
+  try {
+    const response = await assetHandler({ method: "GET" });
+    await prisma.$disconnect;
+    return response;
+  } catch (error) {
+    await prisma.$disconnect;
+    return { status: 500, message: "Error!!" };
+  }
 };
