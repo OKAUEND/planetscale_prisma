@@ -6,6 +6,24 @@ type Request = {
   method: string;
 };
 
+type psscale = {
+  status: number;
+  Star: [
+    {
+      id: number;
+      createdAt: Date;
+      updatedAt: Date;
+      name: string;
+      constellation: string;
+    }
+  ];
+};
+
+type Error = {
+  status: number;
+  message: string;
+};
+
 const assetHandler = async (request: Request) => {
   const { method } = request;
 
