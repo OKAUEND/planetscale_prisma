@@ -30,11 +30,11 @@ const assetHandler = async (request: Request) => {
   return await prisma.star.findMany();
 };
 
-export const PlanetScale = async () => {
+export const PlanetScale = async (): psscale | Error => {
   try {
     const response = await assetHandler({ method: "GET" });
     await prisma.$disconnect;
-    return response;
+    return { status: 200, response };
   } catch (error) {
     await prisma.$disconnect;
     return { status: 500, message: "Error!!" };
