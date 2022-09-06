@@ -6,22 +6,18 @@ type Request = {
   method: string;
 };
 
-type psscale = {
-  status: number;
-  Star: [
-    {
-      id: number;
-      createdAt: Date;
-      updatedAt: Date;
-      name: string;
-      constellation: string;
-    }
-  ];
+type Star = {
+  id: number;
+  createdAt: Date;
+  updatedAt: Date;
+  name: string;
+  constellation: string;
 };
 
-type Error = {
+type prismaResponse<T> = {
   status: number;
   message: string;
+  item?: T[];
 };
 
 const assetHandler = async (request: Request) => {
