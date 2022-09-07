@@ -2,8 +2,13 @@ import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import "./App.css";
 
-function App() {
+import { PlanetScale } from "./prisma/index";
+
+async function App() {
   const [count, setCount] = useState(0);
+  const response = await PlanetScale();
+
+  console.log(response);
 
   return (
     <div className='App'>
