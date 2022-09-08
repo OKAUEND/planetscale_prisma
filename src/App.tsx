@@ -4,11 +4,11 @@ import "./App.css";
 
 import { PlanetScale } from "./prisma/index";
 
-async function App() {
+function App() {
   const [count, setCount] = useState(0);
-  const response = await PlanetScale();
+  const response = PlanetScale();
 
-  console.log(response);
+  // console.log(response);
 
   return (
     <div className='App'>
