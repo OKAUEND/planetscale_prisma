@@ -18,8 +18,18 @@ import { PrismaClient } from "@prisma/client";
 //   item?: T[];
 // };
 
+interface Global {
+  prisma: PrismaClient;
+}
+declare var global: Global;
+
+let prisma: PrismaClient;
+
 export const PlanetScale = async () => {
-  const prisma = new PrismaClient();
+  if (!global.prisma) {
+    global.prisma = new PrismaClient();
+  }
+  prisma = global.prisma;
   const test = await prisma.star.findMany();
   console.log(test);
   // try {
