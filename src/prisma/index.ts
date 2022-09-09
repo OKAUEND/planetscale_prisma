@@ -25,11 +25,12 @@ declare var global: Global;
 
 let prisma: PrismaClient;
 
+if (!global.prisma) {
+  global.prisma = new PrismaClient();
+}
+prisma = global.prisma;
+
 export const PlanetScale = async () => {
-  if (!global.prisma) {
-    global.prisma = new PrismaClient();
-  }
-  prisma = global.prisma;
   const test = await prisma.star.findMany();
   console.log(test);
   // try {
